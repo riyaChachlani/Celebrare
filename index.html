@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Transition</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="image-container">
+      <div class="Login-form">
+        <div class="abc anim">
+          <h1>Welcome Back</h1>
+          <p class="par">Sign In to your Account</p>
+        </div>
+
+        <div class="input-group anim">
+          <input type="text" id="username" required />
+          <label for="">Username</label>
+        </div>
+        <div class="input-group anim">
+          <input type="password" id="password" required minlength="8" />
+          <label for="">Password</label>
+          <i class="fa-solid fa-eye" id="eye"></i>
+          <p class="error-message" id="error-message" style="display: none">
+            Password must be at least 8 characters long.
+          </p>
+        </div>
+        <div class="xxx anim">
+          <input class="input3" type="checkbox" />
+          <span class="rem">Remember Me</span>
+        </div>
+        <br />
+        <button class="btn anim" type="submit" disabled>
+          <span class="btn-text">Login</span>
+          <span class="spinner" style="display: none"></span>
+          <!-- Placeholder spinner -->
+        </button>
+      </div>
+
+      <img
+        src="SmallHouseExteriors-Twitter-card-B-LOGO.jpg"
+        alt="Transition Image"
+        class="transition-image"
+      />
+      <img src="colorful_logo_3.jpg" class="transition-logo" />
+      <div class="Cname">
+        <p>Companys'</p>
+        <p>Name</p>
+      </div>
+      <div class="enroll">
+        <p>Are you a new customer?</p>
+        <button class="btn-2" type="submit">Enroll</button>
+        <div class="dropdown-menu">
+          <p style="color: white">Enroll Now As :</p>
+          <ul>
+            <li><input type="checkbox" checked="true" /> <span>1 </span></li>
+            <li><input type="checkbox" checked="true" /> <span>2 </span></li>
+            <li><input type="checkbox" checked="true" /> <span>3 </span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

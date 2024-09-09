@@ -1,0 +1,377 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  background-color: white;
+  overflow: hidden;
+}
+
+.image-container {
+  position: relative;
+  width: 95vw;
+  height: 95vh;
+  display: block;
+}
+.transition-image {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 50%;
+  left: 50%;
+  border-radius: 4px;
+  transform: scale(1);
+  transition: all 2s ease-in-out;
+  object-fit: cover;
+}
+.transition-logo {
+  position: absolute;
+
+  width: 0px;
+  height: 0px;
+  opacity: 0;
+  top: 55%;
+  left: 52%;
+  border-radius: 50%;
+  transition: all 1s ease;
+}
+.visible {
+  width: 100px;
+  height: 90px;
+  opacity: 1;
+
+  animation: moveUp;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+}
+@keyframes moveUp {
+  from {
+    top: 50%;
+    left: 50%;
+  }
+  to {
+    top: 10%;
+    left: 5%;
+  }
+}
+.final {
+  top: 10%;
+  left: 5%;
+  transform: rotate(360deg);
+  animation-name: movedown;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  animation-delay: 0.5s;
+}
+@keyframes movedown {
+  0% {
+    top: 10%;
+    left: 5%;
+    opacity: 1;
+  }
+  70% {
+    top: 50%;
+    left: 50%;
+    opacity: 1;
+  }
+  100% {
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+  }
+}
+
+body.loaded .transition-image {
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  top: 10%;
+  left: 10%;
+  bottom: 10%;
+  right: 10%;
+  border-radius: 10px;
+}
+body.moved .transition-image {
+  position: absolute;
+  width: 40vw; /* Now only takes half of the screen */
+  height: 80vh;
+  top: 10%;
+  left: 55vw; /* Move the image to the right side */
+  transition: all 1.5s ease-in-out; /* Transition to move to the right */
+}
+.final2 {
+  width: 40vw; /* Now only takes half of the screen */
+  height: 80vh;
+  animation-name: f;
+  animation-duration: 0.4s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  animation-delay: 0.5s;
+  transition: none;
+}
+@keyframes f {
+  from {
+    width: 40vw; /* Now only takes half of the screen */
+    height: 80vh;
+  }
+  to {
+    width: 0%;
+    height: 0%;
+  }
+}
+/*login form */
+
+.Login-form {
+  display: none;
+  position: absolute;
+  height: 60%;
+  width: 50%;
+  top: 30%;
+
+  opacity: 0;
+  padding: 4px;
+  background-color: white;
+}
+
+.vis {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: Login;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+  transform: translateY(30px);
+}
+@keyframes Login {
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.abc {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 10%;
+}
+
+.input-group {
+  position: relative;
+  margin: 20px 0;
+}
+
+.input-group label {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #3a3a3a;
+  padding: 0 5px;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.input-group input {
+  width: 360px;
+  height: 60px;
+  font-size: 16px;
+  color: rgb(26, 18, 18);
+  padding: 0 15px;
+  background: transparent;
+  border: 1.2px solid #565e5c;
+  outline: none;
+  border-radius: 5px;
+}
+.input-group input:hover {
+  border-color: #14b290;
+}
+.input-group input:focus ~ label,
+.input-group input:valid ~ label {
+  top: 0;
+  font-size: 14px;
+  background: white;
+}
+.fa-eye,
+.fa-eye-slash {
+  position: absolute;
+  left: 90%;
+  top: 40%;
+  transform: translateY(-30%);
+  cursor: pointer;
+}
+
+.btn {
+  width: 360px;
+  height: 40px;
+  position: absolute;
+  top: 80%;
+  background-color: grey; /* Initially grey */
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: not-allowed; /* Disabled initially */
+
+  transition: background-color 0.3s ease;
+}
+.input3 {
+  width: 100px;
+  height: 20px;
+  position: absolute;
+  left: 120px;
+}
+.rem {
+  position: absolute;
+  font-size: 20px;
+  left: 200px;
+}
+.btn.active {
+  background-color: green;
+  cursor: pointer;
+}
+
+/* Spinner */
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(61, 55, 55, 0.1); /* Light border */
+  border-top: 3px solid #f1f4f7; /* Blue color for spinner */
+  border-radius: 50%; /* Make it round */
+  animation: spin 1s linear infinite; /* Spin animation */
+  margin-left: 10px;
+}
+
+/* Spinner animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Spinner animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.enroll {
+  display: none;
+  position: absolute;
+  height: 10%;
+  width: 20%;
+  top: 10%;
+  left: 30%;
+  opacity: 0;
+  background-color: white;
+}
+.vi {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  animation: enroll-vi;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+  transform: translateX(20px);
+}
+@keyframes enroll-vi {
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+.Cname {
+  display: none;
+  position: absolute;
+
+  top: 14%;
+  left: 11%;
+  opacity: 0;
+  padding: 2px;
+  background-color: white;
+}
+.v {
+  display: flex;
+  flex-direction: column;
+  justify-items: flex-start;
+  animation: Cname-v;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+  transform: translateX(-20px);
+}
+@keyframes Cname-v {
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.btn-2 {
+  position: absolute;
+  left: 65%;
+  width: 80px;
+  height: 30px;
+  background-color: white;
+  color: #129f81;
+  border-radius: 5px;
+  border-color: #14b290;
+}
+.dropdown-menu {
+  display: none; /* Initially hidden */
+  position: absolute;
+  top: 50px;
+  left: 0;
+  background-color: rgb(91, 87, 87);
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  border-top-right-radius: 0;
+  padding: 10px;
+  width: 150px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+.dropdown-menu ul li {
+  padding: 8px 0;
+  color: white;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+  display: none; /* Hidden by default */
+}
+
+/* Transition for logo */
